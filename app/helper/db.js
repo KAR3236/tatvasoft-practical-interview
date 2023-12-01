@@ -1,12 +1,14 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const Sequelize = require('sequelize');
 
 const sequelize = new Sequelize(
-    'tatva-practical',
-    'root',
+    process.env.DBNAME,
+    process.env.DBUSER,
     '',
     {
-        host: 'localhost',
-        dialect: 'mysql'
+        host: process.env.DBHOST,
+        dialect: process.env.DIALECT
     }
 );
 

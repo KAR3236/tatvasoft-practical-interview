@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const dotenv = require('dotenv');
 require('./app/helper/db');
+dotenv.config();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({
@@ -16,6 +18,6 @@ app.use(bodyParser.urlencoded({
 
 app.use('/', require('./app/routes/route'));
 
-app.listen(5000, () => {
-    console.log(`Server is running on ${5000}`);
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on ${process.env.PORT}`);
 });
